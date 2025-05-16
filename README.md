@@ -18,13 +18,14 @@ This project introduces a simple, output-level diagnostic for regression network
 ## Paper
 
 You can read the full paper here: [`paper.pdf`](./paper.pdf).
+
 _This is a pre-submission draft. Feedback welcomed._
 
 ---
 
 ## Reproducing Results
 
-The experiments in the paper span both synthetic and real-world datasets.
+The experiments in the paper span both synthetic and real-world datasets. All of the code used for the experiments can be found in [`lambda_linearity_score.ipynb`](./lambda_linearity_score.ipynb).
 
 ### Datasets Used:
 - [Medical Cost Personal Dataset (Kaggle)](https://www.kaggle.com/datasets/mirichoi0218/insurance)
