@@ -11,7 +11,7 @@ This repository contains the code and datasets for the paper:
 
 Neural networks can be surprisingly well-approximated by linear models—but how do we measure that, and what does it mean?
 
-This project introduces a simple, output-level diagnostic for regression networks: the **linearity score** \( \lambda(f) \), which quantifies how well a trained neural network can be mimicked by a linear model. Our findings highlight a key tension between **fidelity** and **predictive accuracy**, especially when interpreting neural networks as black boxes.
+This project introduces a simple, output-level diagnostic for regression networks: the **linearity score** $\lambda(f)$, which quantifies how well a trained neural network can be mimicked by a linear model. Our findings highlight a key tension between **fidelity** and **predictive accuracy**, especially when interpreting neural networks as black boxes.
 
 ---
 
@@ -38,9 +38,7 @@ The experiments in the paper span both synthetic and real-world datasets.
 
 We define the linearity score λ(f) as the coefficient of determination ( R^2 ) between a trained neural network’s output ( f(x) ) and the best-fit linear approximation ( g(x) ). Formally:
 
-[
-\lambda(f) = R^2(f, g^*) = 1 - \frac{\mathbb{E}[(f(x) - g(x))^2]}{\text{Var}(f(x))}
-]
+$\lambda(f) = R^2(f, g^*) = 1 - \frac{\mathbb{E}[(f(x) - g(x))^2]}{\text{Var}(f(x))}$
 
 This score reflects how linearly decodable the learned function is from input space—without requiring access to internal activations.
 
