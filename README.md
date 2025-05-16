@@ -30,7 +30,7 @@ The experiments in the paper span both synthetic and real-world datasets.
 - [Medical Cost Personal Dataset (Kaggle)](https://www.kaggle.com/datasets/mirichoi0218/insurance)
 - [Concrete Compressive Strength](https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength)
 - [California Housing Dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
-- Synthetic dataset: $$ y = x \cdot \sin(x) + \varepsilon $$
+- Synthetic dataset: $y = x \cdot \sin(x) + \varepsilon$
 
 ---
 
