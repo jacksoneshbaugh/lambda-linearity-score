@@ -19,6 +19,7 @@ This project introduces a simple, output-level diagnostic for regression network
 
 You can read the full paper here: [`paper.pdf`](./paper.pdf).
 _This is a pre-submission draft. Feedback welcomed._
+
 ---
 
 ## Reproducing Results
