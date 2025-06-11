@@ -1,4 +1,4 @@
-# λ(f): Measuring Linearity in Neural Networks
+# λ(f): A Linearity Score for Neural Network Interpretability
 
 This repository contains the code and datasets for the paper:
 
@@ -9,42 +9,71 @@ This repository contains the code and datasets for the paper:
 
 ## Overview
 
-Neural networks can be surprisingly well-approximated by linear models—but how do we measure that, and what does it mean?
+Neural network outputs can often be well-approximated by linear models—but what does that tell us?
 
-This project introduces a simple, output-level diagnostic for regression networks: the **linearity score** $\lambda(f)$, which quantifies how well a trained neural network can be mimicked by a linear model. Our findings highlight a key tension between **fidelity** and **predictive accuracy**, especially when interpreting neural networks as black boxes.
+This project introduces the **linearity score** λ(f), a simple metric that quantifies how well a regression network’s predictions can be mimicked by a linear model. We show that this output-level diagnostic reveals important interpretability characteristics of learned functions—especially when **fidelity** (mimicking a network) diverges from **accuracy** (matching the ground truth).
 
 ---
 
 ## Paper
 
-You can read the full paper here: [`paper.pdf`](./paper.pdf).
-
-_This is a pre-submission draft. Feedback welcomed._
-
----
-
-## Reproducing Results
-
-The experiments in the paper span both synthetic and real-world datasets. All of the code used for the experiments can be found in [`lambda_linearity_score.ipynb`](./lambda_linearity_score.ipynb).
-
-### Datasets Used:
-- [Medical Cost Personal Dataset (Kaggle)](https://www.kaggle.com/datasets/mirichoi0218/insurance)
-- [Concrete Compressive Strength](https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength)
-- [California Housing Dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
-- Synthetic dataset: $y = x \cdot \sin(x) + \varepsilon$
+📄 Read the paper: [`paper.pdf`](./paper.pdf)  
+_This is a pre-submission draft. Feedback welcomed._  
+Email: jacksoneshbaugh@gmail.com  
+More at: [jacksoneshbaugh.github.io](https://jacksoneshbaugh.github.io)
 
 ---
 
 ## What is λ(f)?
 
-We define the linearity score λ(f) as the coefficient of determination ( R^2 ) between a trained neural network’s output ( f(x) ) and the best-fit linear approximation ( g(x) ). Formally:
+Let \( f \) be a trained regression network, and let \( \mathcal{L} \) be the space of affine functions. Define:
 
-$\lambda(f) := R^2(f, g^*) = 1 - \frac{\mathbb{E}[(f(x) - g(x))^2]}{\text{Var}(f(x))}$
+\[
+\lambda(f) := R^2(f, g^*) = 1 - \frac{\mathbb{E}[(f(x) - g^*(x))^2]}{\text{Var}(f(x))}
+\]
 
-This score reflects how linearly decodable the learned function is from input space—without requiring access to internal activations.
+where \( g^* = \arg\min_{g \in \mathcal{L}} \mathbb{E}[(f(x) - g(x))^2] \).
+
+In other words, λ(f) measures how well a linear model can mimic the predictions of a trained neural network. Unlike typical \( R^2 \), this score is **not** about matching the ground truth—it’s about measuring how *linearly decodable* the function learned by the network is from the input space.
 
 ---
 
-## Acknowledgments
+## Reproducing Results
+
+All experiments and visualizations in the paper are contained in:
+
+📓 [`lambda_linearity_score.ipynb`](./lambda_linearity_score.ipynb)
+
+The notebook is fully self-contained and organized into:
+- A reusable experimental framework
+- Four datasets (synthetic + 3 real-world)
+- Plots and tabulated results
+
+To use λ(f) on your own data, modify the preprocessing and `build_network()` function and rerun the provided pipeline.
+
+---
+
+## Datasets Used
+
+- [Medical Cost Personal Dataset (Kaggle)](https://www.kaggle.com/datasets/mirichoi0218/insurance)
+- [Concrete Compressive Strength](https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength)
+- [California Housing (scikit-learn)](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
+- Synthetic: \( y = x \cdot \sin(x) + \varepsilon \), where \( \varepsilon \sim \mathcal{N}(0, \sigma^2) \)
+
+---
+
+## Requirements
+
+To run the notebook, install the following Python packages:
+
+```bash
+pip install tensorflow scikit-learn matplotlib pandas seaborn kagglehub
+```
+
+Tested with Python 3.11.
+
+## Acknowledgements
 
 Special thanks to Professor Jorge Silveyra for the early discussions that helped spark this project.
+
+&copy; 2025 Jackson Eshbaugh. Released under the [MIT License](./LICENSE).
