@@ -3,7 +3,7 @@
 This repository contains the code and datasets for the paper:
 
 **Fidelity Isn’t Accuracy: When Linearly Decodable Functions Fail to Match the Ground Truth**  
-*Jackson Eshbaugh, Lafayette College, June 2025*
+*Jackson Eshbaugh, Lafayette College, August 2025*
 
 ---
 
@@ -12,15 +12,6 @@ This repository contains the code and datasets for the paper:
 Neural network outputs can often be well-approximated by linear models—but what does that tell us?
 
 This project introduces the **linearity score** λ(f), a simple metric that quantifies how well a regression network’s predictions can be mimicked by a linear model. We show that this output-level diagnostic reveals important interpretability characteristics of learned functions—especially when **fidelity** (mimicking a network) diverges from **accuracy** (matching the ground truth).
-
----
-
-## Paper
-
-📄 Read the paper: [`paper.pdf`](./paper.pdf)  
-_This is a pre-submission draft. Feedback welcomed._  
-Email: jacksoneshbaugh@gmail.com  
-More at: [jacksoneshbaugh.github.io](https://jacksoneshbaugh.github.io)
 
 ---
 
