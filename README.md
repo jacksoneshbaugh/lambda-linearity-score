@@ -3,7 +3,7 @@
 This repository contains the code and datasets for the paper:
 
 **Fidelity Isn’t Accuracy: When Linearly Decodable Functions Fail to Match the Ground Truth**  
-*Jackson Eshbaugh, Lafayette College, August 2025*
+*Jackson Eshbaugh, Lafayette College, January 2026*
 
 ---
 
@@ -17,15 +17,18 @@ This project introduces the **linearity score** λ(f), a simple metric that quan
 
 ## What is λ(f)?
 
-Let \( f \) be a trained regression network, and let \( \mathcal{L} \) be the space of affine functions. Define:
+Let $f$ be a trained regression network, and let $\mathcal{L}$ be the space of affine functions. Define:
 
-\[
+<center>
+
+$
 \lambda(f) := R^2(f, g^*) = 1 - \frac{\mathbb{E}[(f(x) - g^*(x))^2]}{\text{Var}(f(x))}
-\]
+$
 
-where \( g^* = \arg\min_{g \in \mathcal{L}} \mathbb{E}[(f(x) - g(x))^2] \).
+where $ g^* = \arg\min_{g \in \mathcal{L}} \mathbb{E}[(f(x) - g(x))^2]$.
+</center>
 
-In other words, λ(f) measures how well a linear model can mimic the predictions of a trained neural network. Unlike typical \( R^2 \), this score is **not** about matching the ground truth—it’s about measuring how *linearly decodable* the function learned by the network is from the input space.
+In other words, $\lambda(f)$ measures how well a linear model can mimic the predictions of a trained neural network. Unlike typical $R^2$, this score is **not** about matching the ground truth—it’s about measuring how *linearly decodable* the function learned by the network is from the input space.
 
 ---
 
@@ -40,16 +43,15 @@ The notebook is fully self-contained and organized into:
 - Four datasets (synthetic + 3 real-world)
 - Plots and tabulated results
 
-To use λ(f) on your own data, modify the preprocessing and `build_network()` function and rerun the provided pipeline.
+To use $\lambda(f)$ on your own data, modify the preprocessing and `build_network()` function and rerun the provided pipeline.
 
 ---
 
 ## Datasets Used
 
+- Synthetic: $y = x \cdot \sin(x) + \varepsilon$, where $\varepsilon \sim \mathcal{N}(0, \sigma^2)$
 - [Medical Cost Personal Dataset (Kaggle)](https://www.kaggle.com/datasets/mirichoi0218/insurance)
-- [Concrete Compressive Strength](https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength)
 - [California Housing (scikit-learn)](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
-- Synthetic: \( y = x \cdot \sin(x) + \varepsilon \), where \( \varepsilon \sim \mathcal{N}(0, \sigma^2) \)
 
 ---
 
@@ -67,4 +69,4 @@ Tested with Python 3.11.
 
 Special thanks to Professor Jorge Silveyra for the early discussions that helped spark this project.
 
-&copy; 2025 Jackson Eshbaugh. Released under the [MIT License](./LICENSE).
+&copy; 2025 Jackson Eshbaugh &bull; Lafayette College &bull; Released under the [MIT License](./LICENSE).
