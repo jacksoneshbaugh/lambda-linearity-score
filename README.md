@@ -69,4 +69,4 @@ Tested with Python 3.11.
 
 Special thanks to Professor Jorge Silveyra for the early discussions that helped spark this project.
 
-&copy; 2025 Jackson Eshbaugh &bull; Lafayette College &bull; Released under the [MIT License](./LICENSE).
+&copy; 2026 Jackson Eshbaugh &bull; Lafayette College &bull; Released under the [MIT License](./LICENSE).
