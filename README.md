@@ -11,7 +11,7 @@ This repository contains the code and datasets for the paper:
 
 Neural network outputs can often be well-approximated by linear models—but what does that tell us?
 
-This project introduces the **linearity score** λ(f), a simple metric that quantifies how well a regression network’s predictions can be mimicked by a linear model. We show that this output-level diagnostic reveals important interpretability characteristics of learned functions—especially when **fidelity** (mimicking a network) diverges from **accuracy** (matching the ground truth).
+This project introduces the linearity score λ(f), a simple diagnostic that measures how well a regression network’s input–output behavior can be approximated by a linear model. We show that high linear fidelity to a network does not necessarily imply high task accuracy, highlighting a gap between being faithful to a model and being faithful to the underlying data-generating signal.
 
 ---
 
@@ -40,7 +40,7 @@ All experiments and visualizations in the paper are contained in:
 
 The notebook is fully self-contained and organized into:
 - A reusable experimental framework
-- Four datasets (synthetic + 3 real-world)
+- Four datasets (synthetic + 2 real-world)
 - Plots and tabulated results
 
 To use $\lambda(f)$ on your own data, modify the preprocessing and `build_network()` function and rerun the provided pipeline.
