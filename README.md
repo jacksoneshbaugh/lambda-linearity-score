@@ -2,8 +2,8 @@
 
 This repository contains the code and datasets for the paper:
 
-**Fidelity Isn’t Accuracy: When Linearly Decodable Functions Fail to Match the Ground Truth**  
-*Jackson Eshbaugh, Lafayette College, January 2026*
+**"Faithful to What?" On the Limits of Fidelity-Based Explanations**  
+*Jackson Eshbaugh, Department of Computer Science, Lafayette College, January 2026*
 
 ---
 
